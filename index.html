@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <p>Notepad - R$ <span>{{preco}}</span></p>
+    <button @click="total++">Add</button>
+    <button @click="total--">Remove</button>
+    <span>{{total}}</span>
+    <p>Total: <span>{{preco*total}}</span></p>
+  </div>
+
+  
+  <script src="vue.js"></script>
+  <script src="js.js"></script>
+</body>
+
+</html>
