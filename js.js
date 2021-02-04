@@ -20,7 +20,7 @@
 //         preco: 2600,
 //         total: 0
 //     }
-    
+
 // })
 
 
@@ -28,15 +28,28 @@
 //TEMPLATE - double mustache {{}} - funciona calculos e ternarios
 
 
-const vm = new Vue({
+// const vm = new Vue({
+//     el: "#app",
+//     data: {
+//         titulo: "Lorem ipsum título",
+//         conteudo: "Esse é conteúdo",
+//         lado: 5,
+//         comprou: true,
+//         color: "#ffff00",
+//         color2: "#ff0033",
+//         href: "https://www.google.com"
+
+//     }
+// })
+
+
+//DIRETIVAS => codigos que permitem interação entre js e html (tempalte language) - v-if, v-show, v-else, models
+//PARA INPUT => v-model
+//PARA ADD JS e add valores a atributos na tag => usar v-bind ou apenas : (dois pontos) v-bind:style="backgroundColor: red"; v-bind:href="ValorVue"
+
+const v = new Vue({
     el: "#app",
     data: {
-        titulo: "Lorem ipsum título",
-        conteudo: "Esse é conteúdo",
-        lado: 5,
-        comprou: true
+        verdade: false
     }
 })
-
-
-//DIRETIVAS - codigos que permitem interação entre js e html (tempalte language) - v-if, v-show, v-else, models

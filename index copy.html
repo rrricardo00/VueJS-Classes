@@ -9,14 +9,23 @@
 
 <body>
 
-
   <div id="app">
     <h1>{{titulo}}</h1>
     <p>{{conteudo}}</p>
     <p>{{comprou ? 'Sim, comprou':'Não comprou'}}</p>
     <button @click="comprou = !comprou">Change</button>
+    <div v-if="comprou">
+      <input type="color" v-model="color">
+      <p v-bind:style="{backgroundColor: color}">Essa é a cor: {{color}}</p>
+      <a v-bind:href="href">{{href}}</a>
+    </div>
+    <div v-else>
+      <span v-bind:style="{color: color2}">Oh No!! SADFACE</span>
+    </div>
+
   </div>
-  
+
+
   <script src="vue.js"></script>
   <script src="js.js"></script>
 </body>
