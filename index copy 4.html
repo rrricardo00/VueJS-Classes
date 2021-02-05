@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    {{cor}}
+    <input type="color" v-model="cor">
+    <span v-bind:style="{background: cor}">Texto</span>
+  </div>
+
+  <div id="app2">
+    <input type="text" v-model="lado" placeholder="Insira a área">
+    Lado = {{lado}}
+    Perímetro = {{lado*4}}
+    Área = {{lado*lado}}
+  </div>
+
+  <script src="vue.js"></script>
+  <script src="js.js"></script>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        cor: "#ffaa00"
+      }
+    })
+
+    const vm2 = new Vue({
+      el: "#app2",
+      data: {
+        lado: 0
+      }
+    })
+  </script>
+</body>
+
+</html>

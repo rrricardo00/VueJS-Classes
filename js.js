@@ -43,13 +43,19 @@
 // })
 
 
+// const v = new Vue({
+//     el: "#app",
+//     data: {
+//         verdade: false
+//     }
+// })
+
 //DIRETIVAS => codigos que permitem interação entre js e html (tempalte language) - v-if, v-show, v-else, models
 //PARA INPUT => v-model
 //PARA ADD JS e add valores a atributos na tag => usar v-bind ou apenas : (dois pontos) v-bind:style="backgroundColor: red"; v-bind:href="ValorVue"
-
-const v = new Vue({
-    el: "#app",
-    data: {
-        verdade: false
-    }
-})
+//VUE - BASE COSNTRUCTOR
+//el => pega o elemento, id, classe
+//data - dá reatividade aos estados definidos, recebe objeto ou funcção
+//Proxy => quando nao inicia com _ ou $, para acessar direto uma propriedade da data
+//Sempre definir - sempre definir o data
+//propriedades do data - qualquer tipo pode ser aceito
