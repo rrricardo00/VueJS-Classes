@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    {{total}}
+    <button @click="incrementar">Incrementar</button>
+    <button v-if="total > 0" @click="decrementar">Decrementar</button>
+    <br />
+    <button @click="comprar('violao')">violao</button>
+    <button v-on:click="comprar('guitarra')">guitarra</button>
+    <p>{{instrumento}}</p>
+    <button v-on:click="poke('https://pokeapi.co/api/v2/pokemon?limit=999')">Pokemon ID</button>
+    <input v-model="idPoke" type="number">
+    <p v-if="pokeName">nome: <a v-bind:href="pokeURL">{{pokeName}}</a></p>
+    
+  </div>
+
+  <script src="vue.js"></script>
+  <script src="js.js"></script>
+
+  <script>
+
+    const v = new Vue({
+      el: '#app',
+      data: {
+        total: 0,
+        instrumento: "",
+        linkPoke: "",
+        pokeName: "",
+        pokeURL: "",
+        idPoke: 4
+      },
+      methods: {
+        incrementar() {
+          this.total++;
+
+        },
+        decrementar() {
+          this.total--;
+        },
+        comprar(item) {
+          this.instrumento = item;
+          this.teste();
+        },
+        teste() {
+          console.log('metodo ativado');
+        },
+        poke(link) {
+          this.linkPoke = link;
+          fetch(link).then(response => response.json()).then(res => { this.pokeName = res.results[this.idPoke].name; this.pokeURL = res.results[this.idPoke].url })
+
+        }
+      }
+
+
+    })
+
+  </script>
+</body>
+
+</html>

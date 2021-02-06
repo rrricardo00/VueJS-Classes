@@ -55,7 +55,9 @@
 //PARA ADD JS e add valores a atributos na tag => usar v-bind ou apenas : (dois pontos) v-bind:style="backgroundColor: red"; v-bind:href="ValorVue"
 //VUE - BASE COSNTRUCTOR
 //el => pega o elemento, id, classe
-//data - dá reatividade aos estados definidos, recebe objeto ou funcção
+//data - dá reatividade aos estados definidos, recebe objeto ou função
 //Proxy => quando nao inicia com _ ou $, para acessar direto uma propriedade da data
 //Sempre definir - sempre definir o data
 //propriedades do data - qualquer tipo pode ser aceito
+//metodos - propriedade methods
+//metodo dentro de metodo - usar this para acessar o metodo tbm

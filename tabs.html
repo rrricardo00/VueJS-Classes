@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+       <button v-on:click="mudar('tab1')">tab1</button>
+       <button v-on:click="mudar('tab2')">tab2</button>
+       <button v-on:click="mudar('tab3')">tab3</button>
+       <div v-if="a == 'tab1'">APARECEU TAB1</div>
+       <div v-if="a == 'tab2'">APARECEU TAB2</div>
+       <div v-if="a == 'tab3'">APARECEU TAB3</div>
+      
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script src="js.js"></script>
+
+    <script>
+        const v = new Vue({
+            el: '#app',
+            data: {
+                a: ""
+            },
+            methods: {
+                mudar(item){
+                    this.a = item
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
