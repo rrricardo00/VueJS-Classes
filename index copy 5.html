@@ -20,7 +20,7 @@
     <button v-on:click="poke('https://pokeapi.co/api/v2/pokemon?limit=999')">Pokemon ID</button>
     <input v-model="idPoke" type="number">
     <p v-if="pokeName">nome: <a v-bind:href="pokeURL">{{pokeName}}</a></p>
-    
+
   </div>
 
   <script src="vue.js"></script>
@@ -36,7 +36,7 @@
         linkPoke: "",
         pokeName: "",
         pokeURL: "",
-        idPoke: 4
+        idPoke: 0
       },
       methods: {
         incrementar() {
