@@ -20,14 +20,15 @@
     <button v-on:click="poke('https://pokeapi.co/api/v2/pokemon?limit=999')">Pokemon ID</button>
     <input v-model="idPoke" type="number">
     <p v-if="pokeName">nome: <a v-bind:href="pokeURL">{{pokeName}}</a></p>
-
+    <img v-if="src" :src="src" class="image" alt="">
+    
   </div>
 
   <script src="vue.js"></script>
   <script src="js.js"></script>
 
   <script>
-
+    let image = document.querySelector('.image')
     const v = new Vue({
       el: '#app',
       data: {
@@ -36,7 +37,8 @@
         linkPoke: "",
         pokeName: "",
         pokeURL: "",
-        idPoke: 0
+        idPoke: 0,
+        src: ""
       },
       methods: {
         incrementar() {
@@ -55,7 +57,9 @@
         },
         poke(link) {
           this.linkPoke = link;
-          fetch(link).then(response => response.json()).then(res => { this.pokeName = res.results[this.idPoke].name; this.pokeURL = res.results[this.idPoke].url })
+          const number = +this.idPoke + 1
+          fetch(link).then(response => response.json()).then(res => { this.pokeName = res.results[this.idPoke].name; this.pokeURL = res.results[this.idPoke].url });
+          fetch("https://pokeapi.co/api/v2/pokemon-form/"+number).then(response => response.json()).then(res => this.src = res.sprites.front_default);
 
         }
       }
