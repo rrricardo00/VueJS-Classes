@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--V-BIND-->
+  <div id="app">
+    <a :href="link">LINK DO GOOGLE</a>
+    <p :class="cor">paragrafo</p>
+    <p :class="comprou ? 'verde' : 'vermelho'">Cliente comprou?</p>
+  </div>
+
+
+  <script src="vue.js"></script>
+  <script src="js.js"></script>
+  <script>
+    const v = new Vue({
+      el: '#app',
+      data: {
+        link: "https://www.google.com",
+        cor: "azul",
+        comprou: true
+      }
+    })
+  </script>
+</body>
+
+</html>
