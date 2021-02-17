@@ -13,10 +13,11 @@
     <a :href="link">LINK DO GOOGLE</a>
     <p :class="cor">paragrafo</p>
     <p :class="comprou ? 'verde' : 'vermelho'">Cliente comprou?</p>
-  
+    <button v-on:click="mostrarDados">Mostrar Dados</button>
+    {{google}}
+    {{apple}}
     
   </div>
-
 
   <script src="vue.js"></script>
   <script src="js.js"></script>
@@ -27,11 +28,26 @@
         link: "https://www.google.com",
         cor: "azul",
         comprou: true,
-        linkF1: "https://api.origamid.dev/stock/aapl/quote",
-        linkF2: "https://api.origamid.dev/stock/googl/quote",
+        google: {},
+        apple: {}
         
       },
-    
+      methods: {
+        fetch1(){
+          fetch("https://api.origamid.dev/stock/aapl/quote")
+          .then(res => res.json())
+          .then(res => this.apple = res)
+        },
+        fetch2(){
+          fetch("https://api.origamid.dev/stock/googl/quote")
+          .then(res => res.json())
+          .then(res => this.google = res)
+        },
+        mostrarDados(){
+          this.fetch1();
+          this.fetch2();
+        }
+      },
     })
   </script>
 </body>
