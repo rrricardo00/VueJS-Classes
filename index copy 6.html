@@ -14,9 +14,8 @@
     <p :class="cor">paragrafo</p>
     <p :class="comprou ? 'verde' : 'vermelho'">Cliente comprou?</p>
     <button v-on:click="mostrarDados">Mostrar Dados</button>
-    {{google}}
-    {{apple}}
-    
+    <div>{{google.companyName}}</div>
+    <div>{{apple.companyName}}</div>
   </div>
 
   <script src="vue.js"></script>
