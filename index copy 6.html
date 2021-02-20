@@ -6,6 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+  .verm {
+    color: red;
+  }
+
+  .verd {
+    color: green;
+  }
+</style>
 
 <body>
   <!--V-BIND-->
@@ -14,8 +23,13 @@
     <p :class="cor">paragrafo</p>
     <p :class="comprou ? 'verde' : 'vermelho'">Cliente comprou?</p>
     <button v-on:click="mostrarDados">Mostrar Dados</button>
-    <div>{{google.companyName}}</div>
-    <div>{{apple.companyName}}</div>
+    <div>
+      {{google.companyName}}
+      <p> Valor: <span :class="google.marketCap > apple.marketCap ? 'verd' : 'verm'">{{google.marketCap}}</span></p>
+    </div>
+    <div>{{apple.companyName}}
+      <p> Valor: <span :class="apple.marketCap > google.marketCap ? 'verd' : 'verm'"> {{apple.marketCap}}</span></p>
+    </div>
   </div>
 
   <script src="vue.js"></script>
@@ -28,21 +42,22 @@
         cor: "azul",
         comprou: true,
         google: {},
-        apple: {}
-        
+        apple: {},
+        verm: ""
+
       },
       methods: {
-        fetch1(){
+        fetch1() {
           fetch("https://api.origamid.dev/stock/aapl/quote")
-          .then(res => res.json())
-          .then(res => this.apple = res)
+            .then(res => res.json())
+            .then(res => this.apple = res)
         },
-        fetch2(){
+        fetch2() {
           fetch("https://api.origamid.dev/stock/googl/quote")
-          .then(res => res.json())
-          .then(res => this.google = res)
+            .then(res => res.json())
+            .then(res => this.google = res)
         },
-        mostrarDados(){
+        mostrarDados() {
           this.fetch1();
           this.fetch2();
         }
