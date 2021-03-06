@@ -7,11 +7,11 @@
   <title>Document</title>
 </head>
 
-<body>
+<body style="background: #222; color: #fff;">
 
   <div id="app">
-   <div v-on:click="elemento = 'Meu nome'" v-on:mouseout="elemento = 'saiu'" v-on:mouseover="elemento = 'passou'">{{elemento}}</div>
-    
+   <div v-on:click.prevent="elemento = 'Meu nome'" v-on:mouseout.prevent.once="elemento = 'saiu'" v-on:mouseover="elemento = 'passou'">{{elemento}}</div>
+    <input v-on:keyup.enter="evento" type="text">
   </div>
 
 
@@ -23,7 +23,12 @@
       el: "#app",
       data: {
         elemento: "elemento"
-      }
+      },
+      methods: {
+        evento(e){
+          console.log(e.key);
+        }
+      },
     })
   </script>
 </body>
